@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapot - ALTANIX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h2>TES KELULUSAN</h2>
+        <h5>Created by Altaf Hermansyah</h5>
+    </div>
+    <div class="box">
+        <div class="input">
+            <h3>Bahasa Indonesia :</h3>
+            <input type="text" id="nibi" placeholder="Ketik Nilaimu..." required>
+        </div>
+        <div class="input">
+            <h3>Matematika :</h3>
+            <input type="text" id="nimat" placeholder="Ketik Nilaimu..." required>
+        </div>
+        <div class="input">
+            <h3>Ilmu Pengetahuan Alam :</h3>
+            <input type="text" id="niipa" placeholder="Ketik Nilaimu..." required>
+        </div>
+        <div class="button">
+            <button onclick="hitung()" class="but">HITUNG</button>
+        </div>
+    </div>
+    <div class="box2">
+        <div class="tot">
+            <h3>Total Nilai :</h3>
+            <h4 id="total"></h4>
+        </div>
+        <div class="rata">
+            <h3>Rata Rata :</h3>
+            <h4 id="rata"></h4>
+        </div>
+        <div class="lulus">
+            <h3>Hasil</h3>
+            <h4 id="hasil"></h4>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function hitung() {
+        // variable
+        var bind = document.getElementById('nibi').value;
+        var mat = document.getElementById('nimat').value;
+        var ipa = document.getElementById('niipa').value;
+        var total = document.getElementById('total');
+        var rata = document.getElementById('rata');
+        var hasil = document.getElementById('hasil');
+
+        // Hitung
+        total = Number(bind) + Number(mat) + Number(ipa);
+        rata = total / 3;
+
+        //output
+        document.getElementById("total").innerHTML = total;
+        document.getElementById("rata").innerHTML = rata;
+
+        //kondisi
+        if (rata < 75) {
+            hasil = "Kamu Gagal";
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+        else if (rata <= 100) {
+            hasil = "Kamu Lulus";
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+        else if (rata > 100) {
+            hasil = "Diluar Nalar";
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+    }
+</script>
